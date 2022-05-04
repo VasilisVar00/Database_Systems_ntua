@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Info per age group
+{% endblock %}
+
+{% block content %}
+
+<style>
+  h2 {text-align: center;}
+</style>
+
+<div class="col-8">
+    <header>
+        <br>
+        <nav>
+        <a style = "color:white" href="#most_visited_places"> Most visited places </a> |
+        <a style = "color:white" href="#most_used_services"> Most used services </a> |
+        <a style = "color:white" href="#services used by most customers"> Services used by most customers </a>
+        </nav>
+        <br>
+    </header>
+</div>
+
+<div style="height: 500px; overflow: auto;">
+    <section id="most_visited_places">
+        <h2>Most visited places</h2>
+        <br>
+
+
+        <table class="table table-hover table-dark">
+
+            <thead>
+                <tr>
+                    <th colspan=2>Age 20-40</th>
+                    <th colspan=2>Age 41-60</th>
+                    <th colspan=2>Age 61+</th>
+                </tr>
+                <tr>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Total visits</th>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Total visits</th>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Total visits</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in items1 %}
+                    <tr>
+                        <td>{{ item.place_name_1 }}</td>
+                        <td>{{ item.total_visits_1 }}</td>
+                        <td>{{ item.place_name_2 }}</td>
+                        <td>{{ item.total_visits_2 }}</td>
+                        <td>{{ item.place_name_3 }}</td>
+                        <td>{{ item.total_visits_3 }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <section id="most_used_services">
+        <h2>Most used services</h2>
+        <br>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th colspan=2>Age 20-40</th>
+                    <th colspan=2>Age 41-60</th>
+                    <th colspan=2>Age 61+</th>
+                </tr>
+                <tr>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Total uses</th>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Total uses</th>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Total uses</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items2 %}
+                    <tr>
+                        <td>{{ item.service_description_1 }}</td>
+                        <td>{{ item.total_uses_1 }}</td>
+                        <td>{{ item.service_description_2 }}</td>
+                        <td>{{ item.total_uses_2 }}</td>
+                        <td>{{ item.service_description_3 }}</td>
+                        <td>{{ item.total_uses_3 }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <section id="services used by most customers">
+        <h2>Services used by most customers</h2>
+        <br>
+
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th colspan=2>Age 20-40</th>
+                    <th colspan=2>Age 41-60</th>
+                    <th colspan=2>Age 61+</th>
+                </tr>
+                <tr>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Number of uses by different customers</th>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Number of uses by different customers</th>
+                    <th scope="col">Place name</th>
+                    <th scope="col">Number of uses by different customers</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items3 %}
+                    <tr>
+                        <td>{{ item.sd_1 }}</td>
+                        <td>{{ item.total_choices_1 }}</td>
+                        <td>{{ item.sd_2 }}</td>
+                        <td>{{ item.total_choices_2 }}</td>
+                        <td>{{ item.sd_3 }}</td>
+                        <td>{{ item.total_choices_3 }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+{% endblock %}

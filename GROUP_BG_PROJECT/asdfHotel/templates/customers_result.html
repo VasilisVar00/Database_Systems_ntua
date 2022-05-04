@@ -1,0 +1,57 @@
+{% block content %}
+
+<style>
+  h2 {text-align: center;}
+</style>
+
+<div class="col-8">
+    <header>
+        <br>
+        <nav>
+        <a style = "color:white" href="#p_and_t_of_inf"> Place and Time of Infection</a> |
+        <a style = "color:white" href="#possibly_inf">Possibly Infected Clients </a>
+        </nav>
+        <br>
+    </header>
+</div>
+
+<section id = "p_and_t_of_inf">
+<h2>Place and Time of Infection</h2>
+<table class ="table table-hover table-dark">
+
+  <tr>
+    <th>Place</th>
+    <th>Time of Entry</th>
+    <th>Time of Exit</th>
+    <th>NFC ID</th>
+  </tr>
+  {% for result1 in results1 %}
+  <tr>
+    <td>{{result1[0]}}</td>
+    <td>{{result1[1]}}</td>
+    <td>{{result1[2]}}</td>
+    <td>{{result1[3]}}</td>
+  </tr>
+  {% endfor %}
+</table>
+</section>
+
+<section id = "possibly_inf">
+<h2>Possibly Infected Clients</h2>
+<table class="table table-hover table-dark">
+  <tr>
+    <th>NFC ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+  </tr>
+  {% for result2 in results2 %}
+  <tr>
+    <td>{{result2[0]}}</td>
+    <td>{{result2[1]}}</td>
+    <td>{{result2[2]}}</td>
+  </tr>
+  {% endfor %}
+</table>
+</section>
+
+{% endblock %}
